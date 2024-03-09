@@ -2,10 +2,10 @@ import React from 'react'
 import { Box, List, ListItem, ListItemButton, ListItemText, ListItemIcon, Switch } from '@mui/material'
 import { Home, Person, Settings, AccountBox, ModeNight } from '@mui/icons-material'; 
 
-const Sidebar = () => {
+const Sidebar = ({mode, setMode}) => {
   return (
-    <Box bgcolor="white" flex={1} p={2}  sx={{ display: { xs: "none", sm: "block"}}}>
-      <Box position="fixed">
+    <Box bgcolor="background.default" flex={1} p={2}  sx={{ display: { xs: "none", sm: "block"}}}>
+      <Box position="fixed" >
       <List>
           <ListItem disablePadding>
             <ListItemButton component = "a" href = "#home">
@@ -68,7 +68,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <ModeNight />
               </ListItemIcon>
-              <Switch />
+              <Switch onChange={e=>setMode(mode === "light" ? "dark" : "light")}/>
             </ListItemButton>
           </ListItem>
       </List>
